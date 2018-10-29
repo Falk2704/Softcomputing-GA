@@ -6,7 +6,6 @@ class GA {
     static int gene = 4; //22
     static int pm = 1;
 
-
     private int[][] eltern = new int[anz][gene];
     private int[][] nachkommen = new int[anz][gene];
     private int[] besteLsg = new int[gene];
@@ -43,16 +42,10 @@ class GA {
     }
 
     GA() {
-        /*for(int m = 0; m < anz; m++) {
-            for(int n = 0; n < gene; n++) {
-                this.data[m][n] = r.nextInt(100) + 1;
-            }
-        }*/
-
         for (int i = 0; i < anz; i++) {
             for (int j = 0; j < gene; j++) {
                 eltern[i][j] = Math.abs(r.nextInt()) % 2;
-//				System.out.print(" "+eltern[i][j]);
+
             }
             eltern[0][0] = 1;
             eltern[0][1] = 1;
@@ -69,18 +62,11 @@ class GA {
                 besteFitness = fitness[i];
                 System.out.println("Beste Fitness= " + besteFitness);
             }
-
-//			System.out.print(" "+fitness[i]);			
-//			System.out.println();
-
-
         }
-
     }
 
     void rekombinieren() {
         int elter1, elter2, indi1, indi2, trennstelle;
-
 
         for (int i = 0; i < anz; i++) {
             indi1 = Math.abs(r.nextInt()) % anz;
@@ -100,10 +86,7 @@ class GA {
 
             for (int j = trennstelle; j < gene; j++)
                 nachkommen[i][j] = eltern[elter2][j];
-
         }
-
-
     }
 
     void mutieren() {
@@ -135,17 +118,7 @@ class GA {
             }
         }
         System.out.println("Beste Loesung: " + besteFitness + " Aktuelle Loesung: " + fitness[0]);
-/*
-		for(int j=0;j<gene;j++)
-		{
-			System.out.print(" "+eltern[0][j]);
-		}
-		System.out.println();
-*/
-
     }
-
-
 }
 
 
